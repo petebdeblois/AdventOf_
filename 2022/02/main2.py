@@ -1,4 +1,4 @@
-file = open('test.txt')
+file = open('input.txt')
 
 games = file.read().strip().split('\n')
 
@@ -23,12 +23,14 @@ for i in range(len(games)):
 for game in range(len(all_games)):
   if all_games[game][0] == 'A':
     if all_games[game][1] == 'X':
-      scores += scores_my_hand['B']
+      scores += scores_my_hand['C']
       scores += action[all_games[game][1]]
+
     elif all_games[game][1] == 'Y':
       scores += scores_my_hand[all_games[game][0]]
       scores += action[all_games[game][1]]
     else:
+      scores += scores_my_hand['B']
       scores += action[all_games[game][1]]
 
   if all_games[game][0] == 'B':
@@ -39,20 +41,21 @@ for game in range(len(all_games)):
       scores += scores_my_hand[all_games[game][0]]
       scores += action[all_games[game][1]]
     else:
+      scores += scores_my_hand['C']
       scores += action[all_games[game][1]]
 
   if all_games[game][0] == 'C':
     if all_games[game][1] == 'X':
       scores += scores_my_hand['B']
       scores += action[all_games[game][1]]
-    if all_games[game][1] == 'Y':
+      print(scores)
+    elif all_games[game][1] == 'Y':
       scores += scores_my_hand[all_games[game][0]]
       scores += action[all_games[game][1]]
+      print(scores)
     else:
       scores += scores_my_hand['A']
       scores += action[all_games[game][1]]
-  print(scores)
+      print(scores)
 
-
-print(scores)
 
